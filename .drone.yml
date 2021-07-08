@@ -1,3 +1,7 @@
+kind: pipeline
+type: kubernetes
+name: default
+
 pipeline:
   build:
     image: maven:3.5-alpine
