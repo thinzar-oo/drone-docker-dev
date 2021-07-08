@@ -1,8 +1,5 @@
-kind: pipeline
-name: default
-
-steps:
-- name: test
-  image: maven:3-jdk-10
-  commands:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+FROM openjdk:7
+COPY . /usr/src/myapp
+WORKDIR /usr/src/myapp
+RUN javac Main.java
+CMD ["java", "Main"]
