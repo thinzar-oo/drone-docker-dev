@@ -1,9 +1,10 @@
 kind: pipeline
+type: kubernetes
 name: default
 
 steps:
-- name: install
-  image: composer
-
 - name: test
-  image: php:7
+  image: maven:3-jdk-10
+  commands:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - mvn test -B
