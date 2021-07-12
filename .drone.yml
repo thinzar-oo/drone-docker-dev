@@ -1,10 +1,8 @@
 kind: pipeline
 name: default
 
-pipeline:
-  build:
-    image: maven:3.3.9-jdk-8
-    commands: mvn install -DskipNpm -DskipTests
-  test:
-    image: maven:3.3.9-jdk-8
-    commands: mvn integration-test -DskipNpm
+steps:
+- name: test
+  image: python
+  commands:
+  - pip install -r requirements.txt
